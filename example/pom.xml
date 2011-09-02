@@ -72,8 +72,7 @@
 				<artifactId>site-maven-plugin</artifactId>
 				<version>0.1-SNAPSHOT</version>
 				<configuration>
-					<message>building site for ${project.version}</message>
-					<merge>true</merge>
+					<message>Building site for ${project.version}</message>
 				</configuration>
 				<executions>
 					<execution>
