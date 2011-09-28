@@ -37,13 +37,6 @@
 		</developer>
 	</developers>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>oss-sonatype-snapshots</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -53,7 +46,7 @@
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>downloads-maven-plugin</artifactId>
-				<version>0.1-SNAPSHOT</version>
+				<version>0.1</version>
 				<configuration>
 					<description>Official ${project.name} build of the ${project.version} release</description>
 					<override>true</override>
@@ -71,7 +64,7 @@
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.1-SNAPSHOT</version>
+				<version>0.1</version>
 				<configuration>
 					<message>Building site for ${project.version}</message>
 				</configuration>
