@@ -1,0 +1,24 @@
+-classpath
+'/home/ksawicki/repositories/github-maven-example/example/target/classes'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/ksawicki/repositories/github-maven-example/example/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2011. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/home/ksawicki/repositories/github-maven-example/example/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'GitHub Maven Plugin Example 0.1-SNAPSHOT API'
+-link
+'http://java.sun.com/javase/6/docs/api'
+-use
+-version
+-windowtitle
+'GitHub Maven Plugin Example 0.1-SNAPSHOT API'
