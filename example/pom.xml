@@ -46,7 +46,7 @@
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>downloads-maven-plugin</artifactId>
-				<version>0.1</version>
+				<version>0.2</version>
 				<configuration>
 					<description>Official ${project.name} build of the ${project.version} release</description>
 					<override>true</override>
@@ -64,7 +64,7 @@
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.1</version>
+				<version>0.2</version>
 				<configuration>
 					<message>Building site for ${project.version}</message>
 				</configuration>
