@@ -17,8 +17,6 @@
 -doctitle
 'GitHub Maven Plugin Example 0.1-SNAPSHOT Test API'
 -link
-'../apidocs'
--link
 'http://java.sun.com/javase/6/docs/api'
 -use
 -version
