@@ -14,10 +14,8 @@ for how the downloads plugin and site plugin are configured.
 <servers>
   <server>
     <id>github</id>
-    <properties>
-      <username>user</username>
-      <password>password</password>
-    </properties>
+    <username>user</username>
+    <password>password</password>
   </server>  
 </servers>
 ```
