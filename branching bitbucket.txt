@@ -1,0 +1,116 @@
+Configuring branching models
+With Bitbucket Server you can use branching models to define a branch workflow for repositories. When you map your workflow to repository branches with a branching model, admins can guide developers to name branches consistently by configuring which branch types to make available. There are a number of branch types available, and several branch types have default branch naming prefixes (described below). You can also specify your own naming convention for each branch type. A consistent naming convention makes it easier to identify branches by type.
+
+Branch types
+Bitbucket Server comes with several types of branches that are frequently used in software development. This section explains what each branch type is for, and has the typical naming convention for the prefix for each branch type. The prefix can be changed for each branch type.
+
+ 
+
+Development branch
+Usually the integration branch for feature work and is often the default branch or a named branch. For pull request workflows, the branch where new feature branches are targeted.
+
+master 
+or
+develop
+
+Production branch
+Used for deploying a release. Branches from, and merges back into, the development branch. In a Gitflow-based workflow it is used to prepare for a new production release. 
+
+varies
+Feature branch
+Used for specific feature work or improvements. Generally branch from, and merge back into, the development branch using pull requests. See Feature branch workflow.
+
+feature/
+Release branch
+Used for release task and long-term maintenance versions. They branch from, and merge back into, the development branch. Merging into an older release branch can be configured to automatically merge to newer release branches, as well as the development branch.
+
+release/
+Bugfix branch
+Typically used to fix Release branches.
+
+bugfix/
+Hotfix branch
+Used to quickly fix a Production branch without interrupting changes in the development branch. In a Gitflow-based workflow, changes are usually merged into the production and development branches.
+
+hotfix/
+ 
+
+
+You can configure a branching model for either:
+
+a whole project, so that repositories within a project can inherit the same branching model, or
+an individual repository, to override a project's branching model.
+ 
+
+Configure a project's branching model
+Good to know:
+New repositories will have the branching model enabled by default, and use the default branch prefixes.
+
+Enabled branch types can't have empty prefixes, have a 30 character limit, and can't overlap (for example PROD and PRODUCT would overlap).
+To configure a branching model for a project (requires project admin permission):
+
+Go to Project settings > Branching model.
+Choose the details of branching model for repositories that inherit the project settings, then click Save.
+Configure a repository's branching model
+To configure the branching model for a repository (requires repository admin permission),
+
+Go to Repository settings > Branching model for a repository
+Under Project settings inheritance, select Use custom settings.
+Choose the details of your repository branching model, then click Save.
+ 
+
+
+Automating the branch workflow
+ 
+
+Bitbucket Server can automate some merges in the branch workflow, based on the branching model for the repository. This allows merges to be cascaded to newer branches of the same parent, subject to a few conditions, so reducing the need for manual maintenance of branches.
+
+
+
+To enable automatic merge for a project or repository (requires repo/project admin permissions):
+
+Go to Settings > Branching model for a project or repository.
+Under Automatic merge, check Enable automatic merging.
+Click Save.
+ 
+
+If Bitbucket Server cannot perform an automatic merge, perhaps because of a conflict, Bitbucket Server creates a new pull request for that merge, and the automatic merge operation stops. You should then resolve the conflict locally before approving the new pull request, which may involve further cascading merges.
+
+See Automatic branch merging for more information about the conditions for automatic merging, and how Bitbucket Server determines the ordering of branches.
+
+ 
+
+ 
+
+
+Finding and managing branches
+The branch listing page makes it easy to keep track of all the branches in your repository, to get there just select Branches from the side navigation bar. 
+
+The branch listing allows you to:
+
+See how many commits behind or ahead your branch is compared to a chosen 'base branch'.
+See the latest status for pull requests originating from branches.
+See the build status of branches at a glance.
+Track the review and merge work that still needs to be done and can help with branch cleanup.
+Identify work in progress as well as stale branches. It is calculated for each branch against the base branch.
+ 
+
+
+
+ 
+
+Behind/Ahead	Shows by how many commits a branch has diverged from the 'base branch' (for example, master). Use the branch selector to change the base branch.
+Pull requests	
+Shows the relevant state of pull requests against each branch – click the status to see detailed pull request information.
+
+OPEN if there is at least one open pull request.
+MERGED if there are no open pull requests, and at least one pull request has been merged.
+DECLINED if there are no open or merged pull requests, and at least one pull request has been declined.
+ * Builds	Shows the status of the latest build results published to Bitbucket Server. The overall status is 'passed' if all the different builds (for example, unit tests, functional tests, deploy to staging) succeeded and 'failed' if at least one run failed for any of those. Click an icon to see details of the builds.
+Actions	Menu that includes tasks for working with branches.
+* Only if you have an integrated build server.
+
+Search for branches
+You can easily find branches by using the search at the top of the table on the Branches screen. If you're using a branching model, you can filter by branch type simply by searching for the prefix – for example, search for "feature/" to see all your feature branches.
+
+You can find the feature and bugfix branches that haven't yet been merged into a particular release (for example, "release/2.10") by changing the 'base branch' – just use the branch selector to change the base branch, and refer to the Behind/Ahead and Pull requests columns.
