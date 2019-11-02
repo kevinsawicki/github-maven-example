@@ -4,7 +4,7 @@ pipeline {
     stage('checkout') {
       steps {
         dir(path: 'example') {
-          sh 'mvn clean install'
+          sh 'mvn clean test'
         }
 
       }
