@@ -5,6 +5,7 @@ pipeline {
       steps {
         dir(path: 'example') {
           sh 'mvn clean'
+          sh 'ls'
         }
 
       }
