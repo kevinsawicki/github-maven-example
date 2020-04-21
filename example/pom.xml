@@ -7,10 +7,10 @@
 	<version>0.1-SNAPSHOT</version>
 	<name>GitHub Maven Plugin Example</name>
 	<description>Project to demonstrate GitHub Maven plugins</description>
-	<url>https://github.com/kevinsawicki/github-maven-example</url>
+	<url>https://github.com/devopsali7118/git-maven-example.git</url>
 
 	<issueManagement>
-		<url>https://github.com/kevinsawicki/github-maven-example/issues</url>
+		<url>https://github.com/devopsali7118/git-maven-example.git/issues</url>
 		<system>GitHub Issues</system>
 	</issueManagement>
 
@@ -44,24 +44,26 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>downloads-maven-plugin</artifactId>
-				<version>0.6</version>
-				<configuration>
-					<description>Official ${project.name} build of the ${project.version} release</description>
-					<override>true</override>
-					<includeAttached>true</includeAttached>
-					<server>github</server>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>upload</goal>
-						</goals>
-						<phase>install</phase>
-					</execution>
-				</executions>
-			</plugin>
+		<groupId>com.googlecode.maven-download-plugin</groupId>
+	<artifactId>download-maven-plugin</artifactId>
+	<version>1.5.1</version>
+	<executions>
+		<execution>
+			<id>install-jbpm</id>
+			<phase>pre-integration-test</phase>
+			<goals>
+				<goal>wget</goal>
+			</goals>
+			<configuration>
+				<url>http://downloads.sourceforge.net/project/jbpm/jBPM%203/jbpm-3.1.4/jbpm-3.1.4.zip</url>
+				<unpack>true</unpack>
+				<outputDirectory>${project.build.directory}/jbpm-3.1.4</outputDirectory>
+				<md5>df65b5642f33676313ebe4d5b69a3fff</md5>
+			</configuration>
+		</execution>
+	</executions>	
+
+                  </plugin>
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
