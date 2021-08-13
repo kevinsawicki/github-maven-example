@@ -7,10 +7,10 @@
 	<version>0.1-SNAPSHOT</version>
 	<name>GitHub Maven Plugin Example</name>
 	<description>Project to demonstrate GitHub Maven plugins</description>
-	<url>https://github.com/kevinsawicki/github-maven-example</url>
+	<url>https://github.com/tusjad/github-maven-example.git</url>
 
 	<issueManagement>
-		<url>https://github.com/kevinsawicki/github-maven-example/issues</url>
+		<url>https://github.com/tusjad/github-maven-example.git</url>
 		<system>GitHub Issues</system>
 	</issueManagement>
 
@@ -23,7 +23,7 @@
 	</licenses>
 
 	<scm>
-		<url>https://github.com/kevinsawicki/github-maven-example</url>
+		<url>https://github.com/tusjad/github-maven-example.git</url>
 		<connection>scm:git:git://github.com/kevinsawicki/github-maven-example.git</connection>
 		<developerConnection>scm:git:git@github.com:kevinsawicki/github-maven-example.git</developerConnection>
 	</scm>
@@ -32,7 +32,7 @@
 		<developer>
 			<email>kevinsawicki@gmail.com</email>
 			<name>Kevin Sawicki</name>
-			<url>https://github.com/kevinsawicki</url>
+			<url>https://github.com/tusjad/github-maven-example.git</url>
 			<id>kevinsawicki</id>
 		</developer>
 	</developers>
