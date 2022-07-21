@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.github.kevinsawicki</groupId>
+	<groupId>com.github.sreekanthgiraka</groupId>
 	<artifactId>github-maven-example</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<name>GitHub Maven Plugin Example</name>
 	<description>Project to demonstrate GitHub Maven plugins</description>
-	<url>https://github.com/kevinsawicki/github-maven-example</url>
+	<url>https://github.com/sreekanthgiraka/jar1.git</url>
 
 	<issueManagement>
 		<url>https://github.com/kevinsawicki/github-maven-example/issues</url>
@@ -23,7 +23,7 @@
 	</licenses>
 
 	<scm>
-		<url>https://github.com/kevinsawicki/github-maven-example</url>
+		<url>https://github.com/sreekanthgiraka/jar1.git</url>
 		<connection>scm:git:git://github.com/kevinsawicki/github-maven-example.git</connection>
 		<developerConnection>scm:git:git@github.com:kevinsawicki/github-maven-example.git</developerConnection>
 	</scm>
