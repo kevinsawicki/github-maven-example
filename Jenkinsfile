@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('Buzz Build') {
       steps {
-        sh 'clean install -f example/pom.xml'
+        sh 'mvn clean install -f example/pom.xml'
       }
     }
 
     stage('Buzz Test') {
       steps {
-        sh 'test -f example/pom.xml'
+        sh 'mvn test -f example/pom.xml'
       }
     }
 
