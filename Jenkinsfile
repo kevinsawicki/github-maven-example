@@ -9,7 +9,6 @@ pipeline {
             sh '''mvn clean install -f example/pom.xml
 
 echo "I am a ${BUZZ_NAME}"'''
-            archiveArtifacts(artifacts: 'example/target/***', fingerprint: true)
           }
         }
 
