@@ -10,7 +10,6 @@ pipeline {
 
 echo "I am a ${BUZZ_NAME}"'''
             archiveArtifacts(artifacts: 'example/target/***', fingerprint: true)
-            stash(name: 'Buzz Java 7', includes: 'target/**')
           }
         }
 
