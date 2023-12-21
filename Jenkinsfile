@@ -4,6 +4,7 @@ pipeline {
     stage('Buzz Build') {
       steps {
         sh 'mvn clean install -f example/pom.xml'
+        archiveArtifacts(artifacts: 'example/target/***', fingerprint: true)
       }
     }
 
