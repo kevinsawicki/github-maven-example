@@ -11,9 +11,21 @@ echo "I am a ${BUZZ_NAME}"'''
     }
 
     stage('Buzz Test') {
-      steps {
-        sh 'mvn test -f example/pom.xml'
-        junit '**/surefire-reports/**/*.xml'
+      parallel {
+        stage('Testing A') {
+          steps {
+            sh 'mvn test -f example/pom.xml'
+            junit '**/surefire-reports/**/*.xml'
+          }
+        }
+
+        stage('Testing B') {
+          steps {
+            sh '''sleep 10
+echo done.'''
+          }
+        }
+
       }
     }
 
