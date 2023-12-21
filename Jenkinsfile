@@ -17,7 +17,7 @@ echo "I am a ${BUZZ_NAME}"'''
         stage('Build Java 8') {
           agent any
           steps {
-            sh 'copy'
+            sh 'echo "I am a ${BUZZ_NAME}"'
             archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
             stash(name: 'Buzz Java 8', includes: 'target/**')
           }
