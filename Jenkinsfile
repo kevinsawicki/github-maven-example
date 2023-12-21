@@ -2,17 +2,35 @@ pipeline {
   agent none
   stages {
     stage('Buzz Build') {
-      agent {
-        node {
-          label 'jdk7-node'
-        }
+      parallel {
+        stage('Build Java 7') {
+          agent {
+            node {
+              label 'jdk7-node'
+            }
 
-      }
-      steps {
-        sh '''mvn clean install -f example/pom.xml
+          }
+          steps {
+            sh '''mvn clean install -f example/pom.xml
 
 echo "I am a ${BUZZ_NAME}"'''
-        archiveArtifacts(artifacts: 'example/target/***', fingerprint: true)
+            archiveArtifacts(artifacts: 'example/target/***', fingerprint: true)
+          }
+        }
+
+        stage('Build Java 8') {
+          agent {
+            node {
+              label 'java8'
+            }
+
+          }
+          steps {
+            sh 'copy'
+            archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
+          }
+        }
+
       }
     }
 
@@ -49,6 +67,6 @@ echo done.'''
 
   }
   environment {
-    BUZZ_NAME = 'Worker Bee'
+    BUZZ_NAME = 'Java 8 Bee'
   }
 }
