@@ -19,7 +19,6 @@ echo "I am a ${BUZZ_NAME}"'''
           steps {
             sh 'echo "I am a ${BUZZ_NAME}"'
             archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
-            stash(name: 'Buzz Java 8', includes: 'target/**')
           }
         }
 
@@ -31,7 +30,6 @@ echo "I am a ${BUZZ_NAME}"'''
         stage('Testing A 7') {
           agent any
           steps {
-            unstash 'Buzz Java 7'
             sh 'mvn test -f example/pom.xml'
             junit '**/surefire-reports/**/*.xml'
           }
@@ -40,7 +38,6 @@ echo "I am a ${BUZZ_NAME}"'''
         stage('Testing B 7') {
           agent any
           steps {
-            unstash 'Buzz Java 8'
             sh '''sleep 10
 echo done.'''
           }
@@ -49,7 +46,6 @@ echo done.'''
         stage('Testing A 8 ') {
           agent any
           steps {
-            unstash 'Buzz Java 8'
             sh 'mvn test -f example/pom.xml'
           }
         }
@@ -57,7 +53,6 @@ echo done.'''
         stage('Testing B 8 ') {
           agent any
           steps {
-            unstash 'Buzz Java 8'
             sh '''sleep 10
 echo done.'''
           }
