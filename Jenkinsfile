@@ -15,6 +15,7 @@ pipeline {
 
 echo "I am a ${BUZZ_NAME}"'''
             archiveArtifacts(artifacts: 'example/target/***', fingerprint: true)
+            stash(name: 'Buzz Java 7', includes: 'target/**')
           }
         }
 
@@ -28,6 +29,7 @@ echo "I am a ${BUZZ_NAME}"'''
           steps {
             sh 'copy'
             archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
+            stash(name: 'Buzz Java 8', includes: 'target/**')
           }
         }
 
@@ -46,6 +48,7 @@ echo "I am a ${BUZZ_NAME}"'''
           steps {
             sh 'mvn test -f example/pom.xml'
             junit '**/surefire-reports/**/*.xml'
+            unstash 'Buzz Java 7'
           }
         }
 
@@ -59,6 +62,7 @@ echo "I am a ${BUZZ_NAME}"'''
           steps {
             sh '''sleep 10
 echo done.'''
+            unstash 'Buzz Java 8'
           }
         }
 
