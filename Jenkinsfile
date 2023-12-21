@@ -11,6 +11,7 @@ pipeline {
     stage('Buzz Test') {
       steps {
         sh 'mvn test -f example/pom.xml'
+        junit '**/surefire-reports/**/*.xml'
       }
     }
 
