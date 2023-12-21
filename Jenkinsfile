@@ -4,12 +4,7 @@ pipeline {
     stage('Buzz Build') {
       parallel {
         stage('Build Java 7') {
-          agent {
-            node {
-              label 'jdk7-node'
-            }
-
-          }
+          agent any
           steps {
             sh '''mvn clean install -f example/pom.xml
 
@@ -20,12 +15,7 @@ echo "I am a ${BUZZ_NAME}"'''
         }
 
         stage('Build Java 8') {
-          agent {
-            node {
-              label 'java8'
-            }
-
-          }
+          agent any
           steps {
             sh 'copy'
             archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
@@ -39,12 +29,7 @@ echo "I am a ${BUZZ_NAME}"'''
     stage('Buzz Test') {
       parallel {
         stage('Testing A 7') {
-          agent {
-            node {
-              label 'jdk7-node'
-            }
-
-          }
+          agent any
           steps {
             unstash 'Buzz Java 7'
             sh 'mvn test -f example/pom.xml'
@@ -53,12 +38,7 @@ echo "I am a ${BUZZ_NAME}"'''
         }
 
         stage('Testing B 7') {
-          agent {
-            node {
-              label 'jdk7-node'
-            }
-
-          }
+          agent any
           steps {
             unstash 'Buzz Java 8'
             sh '''sleep 10
@@ -67,6 +47,7 @@ echo done.'''
         }
 
         stage('Testing A 8 ') {
+          agent any
           steps {
             unstash 'Buzz Java 8'
             sh 'mvn test -f example/pom.xml'
@@ -74,6 +55,7 @@ echo done.'''
         }
 
         stage('Testing B 8 ') {
+          agent any
           steps {
             unstash 'Buzz Java 8'
             sh '''sleep 10
