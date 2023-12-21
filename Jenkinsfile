@@ -17,7 +17,7 @@ echo "I am a ${BUZZ_NAME}"'''
           agent any
           steps {
             sh 'echo "I am a ${BUZZ_NAME}"'
-            archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
+            archiveArtifacts(artifacts: 'example/target/***', fingerprint: true)
           }
         }
 
