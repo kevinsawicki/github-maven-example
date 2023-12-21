@@ -38,7 +38,7 @@ echo "I am a ${BUZZ_NAME}"'''
 
     stage('Buzz Test') {
       parallel {
-        stage('Testing A') {
+        stage('Testing A 7') {
           agent {
             node {
               label 'jdk7-node'
@@ -46,13 +46,13 @@ echo "I am a ${BUZZ_NAME}"'''
 
           }
           steps {
+            unstash 'Buzz Java 7'
             sh 'mvn test -f example/pom.xml'
             junit '**/surefire-reports/**/*.xml'
-            unstash 'Buzz Java 7'
           }
         }
 
-        stage('Testing B') {
+        stage('Testing B 7') {
           agent {
             node {
               label 'jdk7-node'
@@ -60,9 +60,24 @@ echo "I am a ${BUZZ_NAME}"'''
 
           }
           steps {
+            unstash 'Buzz Java 8'
             sh '''sleep 10
 echo done.'''
+          }
+        }
+
+        stage('Testing A 8 ') {
+          steps {
             unstash 'Buzz Java 8'
+            sh 'mvn test -f example/pom.xml'
+          }
+        }
+
+        stage('Testing B 8 ') {
+          steps {
+            unstash 'Buzz Java 8'
+            sh '''sleep 10
+echo done.'''
           }
         }
 
