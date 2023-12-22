@@ -58,6 +58,12 @@ echo done.'''
       }
     }
 
+    stage('Confirm Deploy to Staging') {
+      steps {
+        input(message: 'Deploy to Stage', ok: 'Yes ,Lets do it')
+      }
+    }
+
   }
   environment {
     BUZZ_NAME = 'Java 8 Bee'
